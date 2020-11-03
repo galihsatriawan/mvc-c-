@@ -3,6 +3,9 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using myMvc.Data;
 
+using Microsoft.EntityFrameworkCore;
+using System.Text;
+
 namespace myMvc.Controllers
 {
     public class MoviesController : Controller
@@ -12,12 +15,9 @@ namespace myMvc.Controllers
         public MoviesController(MvcMovieContext context){
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewData["title"] = "My Movie";
-            ViewData["number"] = 5;
-            ViewData["movies"] = "Dummy";
-            return View();
+            return View(await _context.Movie.ToListAsync());
         }
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)

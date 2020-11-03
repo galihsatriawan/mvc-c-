@@ -29,7 +29,7 @@ namespace myMvc
             services.AddDbContext<MvcMovieContext>(options =>
             {
                 var connectionString = Configuration.GetConnectionString("MvcMovieContext");
-                if(Environment.isDevelopment()){
+                if(Environment.IsDevelopment()){
                     options.UseSqlite(connectionString);
                 }else{
                     options.UseSqlServer(connectionString);

@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-
+using Microsoft.AspNetCore;
+using System.Linq;
 namespace myMvc.Models
 {
     public class Movie
